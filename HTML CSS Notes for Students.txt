@@ -1,0 +1,546 @@
+HTML TAGS AND CSS PROPERTIES REFERENCE FOR GOKUL
+
+TABLE OF CONTENTS
+
+1. HTML Document Structure Tags
+2. Text and Content Tags
+3. Form Tags and Input Elements
+4. CSS Properties and Styling
+5. Examples and Usage
+
+
+1. HTML DOCUMENT STRUCTURE TAGS
+
+<!DOCTYPE html>
+- Purpose: Declares HTML5 document type
+- Usage: Must be first line in HTML document
+- Example: <!DOCTYPE html>
+
+<html>
+- Purpose: Root element of HTML document
+- Attributes: lang (language), dir (text direction)
+- Example: <html lang="en">
+
+<head>
+- Purpose: Contains metadata about the document
+- Contains: title, meta tags, links to CSS/JS
+- Example: <head>...</head>
+
+<title>
+- Purpose: Sets the document title (appears in browser tab)
+- Example: <title>My Website</title>
+
+<meta>
+- Purpose: Provides metadata about the document
+- Common attributes: charset, name, content, viewport
+- Examples: 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body>
+- Purpose: Contains all visible content of the webpage
+- Example: <body>...</body>
+
+2. TEXT AND CONTENT TAGS
+
+HEADING TAGS:
+<h1> to <h6>
+- Purpose: Create headings of different sizes
+- h1 = largest, h6 = smallest
+- Example: <h1>Main Title</h1>
+
+<p>
+- Purpose: Defines a paragraph of text
+- Example: <p>This is a paragraph.</p>
+
+<br>
+- Purpose: Creates a line break
+- Self-closing tag
+- Example: Line 1<br>Line 2
+
+<span>
+- Purpose: Inline container for styling text
+- Example: <span style="color: red;">Red text</span>
+
+<div>
+- Purpose: Block-level container for grouping elements
+- Example: <div class="container">Content here</div>
+
+TEXT FORMATTING TAGS:
+<b> or <strong>
+- Purpose: Makes text bold
+- <strong> has semantic meaning (important)
+- Example: <b>Bold text</b>
+
+<i> or <em>
+- Purpose: Makes text italic
+- <em> has semantic meaning (emphasis)
+- Example: <i>Italic text</i>
+
+<u>
+- Purpose: Underlines text
+- Example: <u>Underlined text</u>
+
+<mark>
+- Purpose: Highlights text
+- Example: <mark>Highlighted text</mark>
+
+<small>
+- Purpose: Makes text smaller
+- Example: <small>Small text</small>
+
+<del>
+- Purpose: Shows deleted/strikethrough text
+- Example: <del>Deleted text</del>
+
+<ins>
+- Purpose: Shows inserted/underlined text
+- Example: <ins>Inserted text</ins>
+
+LIST TAGS:
+<ul>
+- Purpose: Creates unordered (bulleted) list
+- Example: <ul><li>Item 1</li><li>Item 2</li></ul>
+
+<ol>
+- Purpose: Creates ordered (numbered) list
+- Example: <ol><li>First</li><li>Second</li></ol>
+
+<li>
+- Purpose: Defines list item
+- Used inside <ul> or <ol>
+
+<dl>, <dt>, <dd>
+- Purpose: Definition list, term, and description
+- Example: <dl><dt>HTML</dt><dd>HyperText Markup Language</dd></dl>
+
+LINK AND MEDIA TAGS:
+<a>
+- Purpose: Creates hyperlinks
+- Attributes: href (destination), target, title
+- Example: <a href="https://example.com">Click here</a>
+
+<img>
+- Purpose: Embeds images
+- Attributes: src (source), alt (alternative text), width, height
+- Example: <img src="image.jpg" alt="Description">
+
+TABLE TAGS:
+<table>
+- Purpose: Creates a table
+- Example: <table>...</table>
+
+<tr>
+- Purpose: Table row
+- Example: <tr><td>Cell 1</td><td>Cell 2</td></tr>
+
+<td>
+- Purpose: Table data cell
+- Example: <td>Cell content</td>
+
+<th>
+- Purpose: Table header cell
+- Example: <th>Header</th>
+
+<thead>, <tbody>, <tfoot>
+- Purpose: Groups table sections
+- Example: <thead><tr><th>Header</th></tr></thead>
+
+3. FORM TAGS AND INPUT ELEMENTS
+
+<form>
+- Purpose: Creates a form for user input
+- Attributes: action (where to send data), method (GET/POST)
+- Example: <form action="/submit" method="post">...</form>
+
+<input>
+- Purpose: Creates various input fields
+- Self-closing tag
+- Types and examples:
+
+INPUT TYPES:
+type="text"
+- Purpose: Single-line text input
+- Example: <input type="text" name="username" placeholder="Enter username">
+
+type="password"
+- Purpose: Password input (hidden characters)
+- Example: <input type="password" name="password">
+
+type="email"
+- Purpose: Email input with validation
+- Example: <input type="email" name="email">
+
+type="number"
+- Purpose: Numeric input
+- Attributes: min, max, step
+- Example: <input type="number" name="age" min="1" max="100">
+
+type="date"
+- Purpose: Date picker
+- Example: <input type="date" name="birthdate">
+
+type="tel"
+- Purpose: Telephone number input
+- Example: <input type="tel" name="phone">
+
+type="url"
+- Purpose: URL input with validation
+- Example: <input type="url" name="website">
+
+type="radio"
+- Purpose: Single selection from group
+- Example: <input type="radio" name="gender" value="male" id="male">
+
+type="checkbox"
+- Purpose: Multiple selections
+- Example: <input type="checkbox" name="interests" value="sports">
+
+type="file"
+- Purpose: File upload
+- Example: <input type="file" name="upload" accept=".jpg,.png">
+
+type="submit"
+- Purpose: Submit button for form
+- Example: <input type="submit" value="Submit Form">
+
+type="reset"
+- Purpose: Reset form fields
+- Example: <input type="reset" value="Clear Form">
+
+type="button"
+- Purpose: Generic button
+- Example: <input type="button" value="Click Me">
+
+OTHER FORM ELEMENTS:
+<textarea>
+- Purpose: Multi-line text input
+- Attributes: rows, cols, placeholder
+- Example: <textarea name="message" rows="4" cols="50"></textarea>
+
+<select>
+- Purpose: Dropdown selection
+- Example: <select name="country"><option value="us">USA</option></select>
+
+<option>
+- Purpose: Options within select dropdown
+- Attributes: value, selected
+- Example: <option value="uk" selected>United Kingdom</option>
+
+<label>
+- Purpose: Labels for form elements
+- Attributes: for (connects to input id)
+- Example: <label for="username">Username:</label>
+
+<fieldset>
+- Purpose: Groups related form elements
+- Example: <fieldset><legend>Personal Info</legend>...</fieldset>
+
+<legend>
+- Purpose: Caption for fieldset
+- Example: <legend>Contact Information</legend>
+
+<button>
+- Purpose: Clickable button
+- Types: submit, reset, button
+- Example: <button type="submit">Send</button>
+
+4. CSS PROPERTIES AND STYLING
+
+CSS SYNTAX:
+selector {
+    property: value;
+}
+
+WAYS TO ADD CSS:
+1. Inline: <p style="color: red;">Text</p>
+2. Internal: <style>p { color: red; }</style>
+3. External: <link rel="stylesheet" href="styles.css">
+
+TEXT PROPERTIES:
+color
+- Purpose: Sets text color
+- Values: color names, hex codes, rgb(), rgba()
+- Example: color: #333; color: red; color: rgb(255,0,0);
+
+font-family
+- Purpose: Sets font type
+- Values: font names, generic families
+- Example: font-family: Arial, sans-serif;
+
+font-size
+- Purpose: Sets text size
+- Values: pixels, em, rem, percentages
+- Example: font-size: 16px; font-size: 1.2em;
+
+font-weight
+- Purpose: Sets text thickness
+- Values: normal, bold, 100-900
+- Example: font-weight: bold; font-weight: 600;
+
+font-style
+- Purpose: Sets text style
+- Values: normal, italic, oblique
+- Example: font-style: italic;
+
+text-align
+- Purpose: Aligns text horizontally
+- Values: left, right, center, justify
+- Example: text-align: center;
+
+text-decoration
+- Purpose: Adds decoration to text
+- Values: none, underline, overline, line-through
+- Example: text-decoration: underline;
+
+line-height
+- Purpose: Sets space between lines
+- Values: numbers, pixels, percentages
+- Example: line-height: 1.5; line-height: 24px;
+
+BACKGROUND PROPERTIES:
+background-color
+- Purpose: Sets background color
+- Values: color names, hex, rgb, rgba
+- Example: background-color: #f0f0f0;
+
+background-image
+- Purpose: Sets background image
+- Values: url() function
+- Example: background-image: url('image.jpg');
+
+background-size
+- Purpose: Controls background image size
+- Values: cover, contain, pixels, percentages
+- Example: background-size: cover;
+
+background-position
+- Purpose: Positions background image
+- Values: keywords, pixels, percentages
+- Example: background-position: center top;
+
+BOX MODEL PROPERTIES:
+margin
+- Purpose: Space outside element border
+- Values: pixels, em, percentages, auto
+- Example: margin: 10px; margin: 10px 20px;
+
+padding
+- Purpose: Space inside element border
+- Values: pixels, em, percentages
+- Example: padding: 15px; padding: 10px 20px 10px 20px;
+
+border
+- Purpose: Creates border around element
+- Values: width style color
+- Example: border: 2px solid #333;
+
+border-radius
+- Purpose: Rounds corners
+- Values: pixels, percentages
+- Example: border-radius: 5px; border-radius: 50%;
+
+width
+- Purpose: Sets element width
+- Values: pixels, percentages, auto
+- Example: width: 300px; width: 100%;
+
+height
+- Purpose: Sets element height
+- Values: pixels, percentages, auto
+- Example: height: 200px; height: 50vh;
+
+LAYOUT PROPERTIES:
+display
+- Purpose: Controls element display type
+- Values: block, inline, inline-block, flex, grid, none
+- Example: display: flex; display: none;
+
+position
+- Purpose: Controls element positioning
+- Values: static, relative, absolute, fixed, sticky
+- Example: position: relative; position: absolute;
+
+top, right, bottom, left
+- Purpose: Positions element (with position property)
+- Values: pixels, percentages
+- Example: top: 10px; left: 50%;
+
+float
+- Purpose: Floats element left or right
+- Values: left, right, none
+- Example: float: left;
+
+clear
+- Purpose: Clears floated elements
+- Values: left, right, both, none
+- Example: clear: both;
+
+FLEXBOX PROPERTIES:
+justify-content
+- Purpose: Aligns flex items horizontally
+- Values: flex-start, center, space-between, space-around
+- Example: justify-content: center;
+
+align-items
+- Purpose: Aligns flex items vertically
+- Values: flex-start, center, flex-end, stretch
+- Example: align-items: center;
+
+flex-direction
+- Purpose: Sets flex container direction
+- Values: row, column, row-reverse, column-reverse
+- Example: flex-direction: column;
+
+VISUAL EFFECTS:
+box-shadow
+- Purpose: Adds shadow to element
+- Values: horizontal vertical blur spread color
+- Example: box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+opacity
+- Purpose: Sets element transparency
+- Values: 0 (transparent) to 1 (opaque)
+- Example: opacity: 0.8;
+
+transform
+- Purpose: Transforms element (rotate, scale, translate)
+- Values: rotate(), scale(), translate()
+- Example: transform: rotate(45deg); transform: scale(1.2);
+
+transition
+- Purpose: Smooth property changes
+- Values: property duration timing-function delay
+- Example: transition: all 0.3s ease;
+
+PSEUDO-CLASSES:
+:hover
+- Purpose: Styles element on mouse hover
+- Example: a:hover { color: blue; }
+
+:focus
+- Purpose: Styles focused element
+- Example: input:focus { border-color: blue; }
+
+:active
+- Purpose: Styles active element
+- Example: button:active { background-color: gray; }
+
+:nth-child()
+- Purpose: Selects specific child elements
+- Example: tr:nth-child(even) { background-color: #f0f0f0; }
+
+RESPONSIVE DESIGN:
+@media
+- Purpose: Applies styles based on screen conditions
+- Example: @media (max-width: 600px) { body { font-size: 14px; } }
+
+==============================================
+5. EXAMPLES AND USAGE
+==============================================
+
+BASIC HTML STRUCTURE:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 800px; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My Website</h1>
+        <p>This is a paragraph of text.</p>
+    </div>
+</body>
+</html>
+
+FORM EXAMPLE:
+<form action="/submit" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+    
+    <button type="submit">Send Message</button>
+</form>
+
+CSS STYLING EXAMPLE:
+.form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-container button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+
+RESPONSIVE DESIGN EXAMPLE:
+/* Desktop styles */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+}
+
+==============================================
+BEST PRACTICES
+==============================================
+
+1. Always use semantic HTML tags
+2. Include alt attributes for images
+3. Use proper form labels for accessibility
+4. Keep CSS organized and commented
+5. Use external CSS files for larger projects
+6. Test on different screen sizes
+7. Validate HTML and CSS code
+8. Use meaningful class and ID names
+9. Optimize images for web
+10. Follow web accessibility guidelines
+
