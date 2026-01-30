@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asset Management</title>
+</head>
+<body>
+<link rel="stylesheet" href="interactive-advanced.css">
+    <div class="container">
+        <h1>Asset Management System</h1>
+        <div class="nav-container">
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+        
+        <h2>Assets</h2>
+        <div id="assets" class="loading">Loading...</div>
+        
+        <h3>Add Asset</h3>
+        <form id="assetForm">
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Asset Name" required>
+            </div>
+            <div class="input-group">
+                <input type="text" id="category" placeholder="Category" required>
+            </div>
+            <div class="input-group">
+                <input type="text" id="description" placeholder="Description">
+            </div>
+            <div class="input-group">
+                <input type="number" id="value" placeholder="Value (₹)">
+            </div>
+            <div class="input-group">
+                <input type="date" id="purchaseDate" placeholder="Purchase Date">
+            </div>
+            <div class="input-group">
+                <input type="text" id="status" placeholder="Status" required>
+            </div>
+            <button type="submit" id="submitBtn">Add Asset</button>
+        </form>
+    </div>
+
+    <script>
+        let editingId = null;
+
+        function loadAssets() {
+            fetch('/api/assets')
+                .then(response => response.json())
+                .then(assets => {
+                    const div = document.getElementById('assets');
+                    if (assets.length === 0) {
+                        div.innerHTML = 'There are no products now. Click to add assets';
+                    } else {
+                        div.innerHTML = assets.map(asset => 
+                            `<p>${asset.name} - ${asset.category} - Rs. ${asset.value} 
+                            <button onclick="editAsset(${asset.id})">Edit</button>
+                            <button onclick="deleteAsset(${asset.id})">Delete</button></p>`
+                        ).join('');
+                    }
+                });
+        }
+
+        function editAsset(id) {
+            fetch(`/api/assets/${id}`)
+                .then(response => response.json())
+                .then(asset => {
+                    editingId = id;
+                    document.getElementById('name').value = asset.name;
+                    document.getElementById('category').value = asset.category;
+                    document.getElementById('description').value = asset.description;
+                    document.getElementById('value').value = asset.value;
+                    document.getElementById('purchaseDate').value = asset.purchaseDate;
+                    document.getElementById('status').value = asset.status;
+                    document.getElementById('submitBtn').textContent = 'Update Asset';
+                });
+        }
+
+        function deleteAsset(id) {
+            fetch(`/api/assets/${id}`, { method: 'DELETE' })
+                .then(() => loadAssets());
+        }
+
+        document.getElementById('assetForm').onsubmit = function(e) {
+            e.preventDefault();
+            const asset = {
+                name: document.getElementById('name').value,
+                category: document.getElementById('category').value,
+                description: document.getElementById('description').value,
+                value: document.getElementById('value').value,
+                purchaseDate: document.getElementById('purchaseDate').value,
+                status: document.getElementById('status').value
+            };
+            
+            const method = editingId ? 'PUT' : 'POST';
+            const url = editingId ? `/api/assets/${editingId}` : '/api/assets';
+            
+            fetch(url, {
+                method: method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(asset)
+            }).then(() => {
+                loadAssets();
+                document.getElementById('assetForm').reset();
+                editingId = null;
+                document.getElementById('submitBtn').textContent = 'Add Asset';
+            });
+        };
+
+        loadAssets();
+    </script>
+</body>
+</html>

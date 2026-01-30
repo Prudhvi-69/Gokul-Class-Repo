@@ -1,0 +1,21 @@
+Check the file names mentioned in the folder : 
+
+
+1. basic-colors.css
+2. themed-design.css
+3. interactive-advanced.css
+
+
+These 3 files are containing the css styles for 3 different levels like, basic, intermediate and advanced for a single application.
+
+** You can import these files inside the index.html file.
+** You need to import these CSS style files inside the body tag like, 
+	<body>
+		<link rel="stylesheet" href="basic-colors.css"> 		//For basic color in the app
+				or 
+		<link rel="stylesheet" href="themed-design.css">		//For a theme type of design in the app
+				or
+		<link rel="stylesheet" href="interactive-advanced.css">
+																		//Interactive features in the app 
+
+** You can import only one CSS file at a time and if you want to change the CSS file.

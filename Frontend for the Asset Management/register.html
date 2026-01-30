@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Asset Management</title>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1 class="auth-title">Create Account</h1>
+            <form id="registerForm">
+                <div class="input-group">
+                    <input type="text" id="firstName" placeholder="First Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="lastName" placeholder="Last Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="phone" placeholder="Phone Number">
+                </div>
+                <button type="submit">Create Account</button>
+            </form>
+            <div class="auth-links">
+                <a href="/login">Already have an account?</a>
+                <a href="/">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').onsubmit = function(e) {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append('firstName', document.getElementById('firstName').value);
+            formData.append('lastName', document.getElementById('lastName').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('password', document.getElementById('password').value);
+            formData.append('phone', document.getElementById('phone').value);
+            
+            fetch('/register', {
+                method: 'POST',
+                body: formData
+            }).then(() => {
+                alert('Registration successful');
+                window.location.href = '/login';
+            });
+        };
+    </script>
+</body>
+</html>
